@@ -12,4 +12,4 @@ app.UseHttpsRedirection();
 
 app.MapGet("time/utc", () => Results.Ok(DateTime.UtcNow));
 
-app.RunAsync();
+await app.RunAsync();
