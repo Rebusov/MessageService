@@ -1,0 +1,20 @@
+﻿version: '3.8'
+
+services:
+  rebusov-message-service:
+    container_name: rebusov-message-service
+    restart: always
+    build:
+      context: .
+    environment:
+      CORS_ORIGINS: http://localhost
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - message-service-network
+
+networks:
+  message-service-network:
+    external: true
