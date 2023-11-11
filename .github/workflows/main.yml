@@ -24,5 +24,8 @@ jobs:
     - name: Build
       run: dotnet build ./MessageService.sln --configuration Release --no-restore
 
+    - name: Tests
+      run: dotnet test ./MessageService.sln --configuration Release --no-build
+
     - name: Publish
       run: dotnet publish ./MessageService.sln --configuration Release --no-build
