@@ -1,0 +1,22 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-service-deployment
+  labels:
+    app: message-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: message-service
+  template:
+    metadata:
+      labels:
+        app: message-service
+    spec:
+      containers:
+        - name: message-service
+          image: maxaytt/message-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
